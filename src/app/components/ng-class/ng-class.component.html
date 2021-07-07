@@ -15,15 +15,18 @@
       Danger
     </button>
   </div>
-  <h3 [ngClass]="'text-' + textType">Atención</h3>
+  <h3 [ngClass]="{'text-danger': changeColor, 'text-info': !changeColor}">Atención</h3>
   <button
     type="button"
     class="btn"
-    [ngClass]="'btn-' + textType"
-    (click)="toggleText()"
+    [ngClass]="{'btn-danger': changeColor, 'btn-info': !changeColor}"
+    (click)="toggleColor()"
   >
     Cambiar
   </button>
   <h4>Proceso asíncrono</h4>
-  <button type="button" class="btn btn-primary">Guardar cambios</button>
+  <button type="button" class="btn btn-primary" (click)="AsyncClick()" [disabled]="isLoading"><fa-icon [icon]="isLoading ? faSyncAlt : faSave" [spin]="isLoading"></fa-icon> 
+    <span *ngIf="!isLoading">Guardar cambios</span>
+    <span *ngIf="isLoading">Espere por favor...</span>
+  </button>
 </section>

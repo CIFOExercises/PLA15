@@ -1,7 +1,19 @@
-<section>
-  <h3>ngSwitch</h3>
-  <div class="alert alert-info" role="alert">
-    Heads up! This alert needs your attention...
+<h3>ngSwitch</h3>
+<div [ngSwitch]="alert">
+  <div class="alert alert-success" role="alert" *ngSwitchCase="'success'">
+    <strong>Well done!</strong> You successfully read this important alert
+    message!
   </div>
-  <button type="button" class="btn btn-primary">Cambiar</button>
-</section>
+  <div class="alert alert-info" role="alert" *ngSwitchCase="'info'">
+    <strong>Heads up!</strong> This alert needs your attention...
+  </div>
+  <div class="alert alert-warning" role="alert" *ngSwitchCase="'warning'">
+    <strong>Warning!</strong> Better check yourself, you're not looking too...
+  </div>
+  <div class="alert alert-danger" role="alert" *ngSwitchDefault>
+    <strong>Oh snap!</strong> change a few things up and try submitting again!
+  </div>
+</div>
+<button class="btn btn-primary" type="button" (click)="changeAlert()">
+  Cambiar
+</button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { faSave, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-ng-class',
   templateUrl: './ng-class.component.html',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgClassComponent implements OnInit {
   alertType: string = 'info';
-  textType: string = 'info';
+  changeColor: boolean = false;
+  faSave = faSave;
+  faSyncAlt = faSyncAlt;
+  isLoading: boolean = false;
 
   constructor() {}
 
@@ -29,11 +32,14 @@ export class NgClassComponent implements OnInit {
     this.alertType = 'danger';
   }
 
-  toggleText() {
-    if (this.textType == 'info') {
-      this.textType = 'danger';
-    } else {
-      this.textType = 'info';
-    }
+  toggleColor() {
+    this.changeColor = !this.changeColor
+  }
+
+  AsyncClick(){
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 3000);
   }
 }
