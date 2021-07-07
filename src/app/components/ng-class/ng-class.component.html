@@ -1,13 +1,29 @@
 <section>
   <h3>ngClass</h3>
-  <div class="alert alert-danger" role="alert">
-    A simple warning alert — check it out!
+  <div class="alert" [ngClass]="'alert-' + alertType" role="alert">
+    A simple alert — check it out!
   </div>
   <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-info" (click)="info()">Info</button>
+    <button type="button" class="btn btn-success" (click)="success()">
+      Success
+    </button>
+    <button type="button" class="btn btn-warning" (click)="warning()">
+      Warning
+    </button>
+    <button type="button" class="btn btn-danger" (click)="danger()">
+      Danger
+    </button>
   </div>
+  <h3 [ngClass]="'text-' + textType">Atención</h3>
+  <button
+    type="button"
+    class="btn"
+    [ngClass]="'btn-' + textType"
+    (click)="toggleText()"
+  >
+    Cambiar
+  </button>
   <h4>Proceso asíncrono</h4>
   <button type="button" class="btn btn-primary">Guardar cambios</button>
 </section>

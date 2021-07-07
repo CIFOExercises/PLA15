@@ -1,12 +1,4 @@
-<section>
-  <h2>*ngFor</h2>
-  <hr />
-  <div>
-    <span>Cras justo odio</span>
-    <span>Dapius ac facislis</span>
-    <span>Morbi leo risus</span>
-    <span>Porta as consectetur ac</span>
-    <span>Vestibulum at eros</span>
-  </div>
-  <h3>Numero 10 - Es par</h3>
-</section>
+<h2>*ngFor</h2>
+<ul class="list-group">
+  <li *ngFor="let item of list" class="list-group-item">{{ item }}</li>
+</ul>

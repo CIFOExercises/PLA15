@@ -1,12 +1,23 @@
-<section>
-  <h2>*ngIf</h2>
-  <hr />
-  <div>
-    <h4>Homer Simpson</h4>
-    <p>
-      Tendrá todo el dinero del mundo, pero hay algo que jamás podrá comprar: un
-      dinosaurio
-    </p>
+<h2>*ngIf</h2>
+<div
+  *ngIf="isVisible"
+  class="card text-white bg-primary mb-3"
+  style="max-width: 100%"
+>
+  <div class="card-body">
+    <h5 class="card-title">{{ props.autor }}</h5>
+    <p class="card-text">{{ props.mensaje }}</p>
   </div>
-  <button>Mostrar / Ocultar</button>
-</section>
+</div>
+<button
+  class="btn btn-outline-primary btn-block"
+  (click)="isVisible = !isVisible"
+>
+  Mostrar/Ocultar
+</button>
+<div *ngIf="numero % 2 == 0; else impar">
+  <h3>Número {{ numero }} - Es par</h3>
+</div>
+<ng-template #impar>
+  <h3>Número {{ numero }} - Es impar</h3>
+</ng-template>
